@@ -1,6 +1,7 @@
 var assert = require('assert');
 let {promiseThat, isRejectedWith} = require('hamjest');
-import GroupedKatas from "./index.js";
+import GroupedKatas from "./grouped-katas.js";
+import {INVALID_URL, KATAS_URL} from './config';
 
 function loadKatasJsonFrom(url){
     return new GroupedKatas().load(url);
@@ -11,11 +12,6 @@ describe('test setup', () => {
        assert(true);
    });
 });
-
-
-const URL_PREFIX='http://katas.tddbin.com/katas/es6/language/';
-const KATAS_URL='${URL_PREFIX}' + '__grouped__.json';
-const INVALID_URL='${URL_PREFIX}' + '__all__.json';
 
 
 describe('loading the katas JSON', () => {

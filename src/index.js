@@ -1,19 +1,7 @@
-var fetch = require('node-fetch');
+import GroupedKatas from './grouped-katas.js';
+import {KATAS_URL} from './config';
 
-export default class GroupedKatas {
-    load(url){
-        return loadKatasJsonFrom(url);
-    }
-}
-
-export function loadKatasJsonFrom(url){
-    return fetch(url).then(res => res.json())
-    .catch(() => {throw 'Error loading katas.'})
-    .then(katasJson => {
-      if('groups' in katasJson){
-         return katasJson;
-      }
-      throw 'Invalid Json format'
-    });
-}
-
+new GroupedKatas().load(KATAS_URL)
+      .then(groupedKatas => {
+              document.getElementById('app').innerHTML = JSON.stringify(groupedKatas);
+                });
