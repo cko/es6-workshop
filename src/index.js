@@ -1,7 +1,5 @@
 var fetch = require('node-fetch');
 
-var KATAS_URL='http://katas.tddbin.com/katas/es6/language/__grouped__.json';
-var INVALID_URL='http://katas.tddbin.com/katas/es6/language/__all__.json';
 
 function loadKatasJsonFrom(url){
     return fetch(url).then(function(res){

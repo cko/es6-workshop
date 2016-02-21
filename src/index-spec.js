@@ -1,5 +1,6 @@
 var assert = require('assert');
 var hamjest = require('hamjest');
+var loadKatasJsonFrom = require("./index.js");
 var promiseThat = hamjest.promiseThat;
 var isRejectedWith = hamjest.isRejectedWith;
 describe('test setup', () => {
@@ -9,6 +10,8 @@ describe('test setup', () => {
 });
 
 
+var KATAS_URL='http://katas.tddbin.com/katas/es6/language/__grouped__.json';
+var INVALID_URL='http://katas.tddbin.com/katas/es6/language/__all__.json';
 
 
 describe('loading the katas JSON', () => {
