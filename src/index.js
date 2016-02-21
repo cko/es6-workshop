@@ -1,5 +1,11 @@
 var fetch = require('node-fetch');
 
+export default class GroupedKatas {
+    load(url){
+        return loadKatasJsonFrom(url);
+    }
+}
+
 export function loadKatasJsonFrom(url){
     return fetch(url).then(res => res.json())
     .catch(() => {throw 'Error loading katas.'})
