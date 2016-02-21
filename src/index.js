@@ -6,14 +6,18 @@ import KataGroupsComponent from './component/kata-groups'
 class Page extends React.Component {
       render() {
               var groupNames = Object.keys(this.props.katas.groups);
+                  console.log("render: " + groupNames);
                   return (
                                 <KataGroupsComponent groupNames={groupNames} />
                                     );
                     }
 }
 
+import ReactDOM from 'react-dom';
+
 new GroupedKatas().load(KATAS_URL)
       .then(groupedKatas => {
+              console.log("groupedKatas : " + groupedKatas);
               //document.getElementById('app').innerHTML = JSON.stringify(groupedKatas);
               ReactDOM.render(<Page katas={groupedKatas}/>, document.getElementById('app'));
   });
