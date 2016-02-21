@@ -1,14 +1,9 @@
 var fetch = require('node-fetch');
 
-
-function loadKatasJsonFrom(url){
-    return fetch(url).then(function(res){
-        return res.json();
-    })
-    .catch(function(){
-        throw 'Error loading katas.'
-    })
-    .then(function(katasJson){
+export function loadKatasJsonFrom(url){
+    return fetch(url).then(res => res.json())
+    .catch(() => {throw 'Error loading katas.'})
+    .then(katasJson => {
       if('groups' in katasJson){
          return katasJson;
       }
@@ -16,4 +11,3 @@ function loadKatasJsonFrom(url){
     });
 }
 
-module.exports = loadKatasJsonFrom;
